@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id 'checkstyle'
     id 'pmd'
+    id 'name.remal.sonarlint' version '1.0.177'
 }
 
 group = 'com.nelkinda.training'
