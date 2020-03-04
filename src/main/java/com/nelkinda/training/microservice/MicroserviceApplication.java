@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 public class MicroserviceApplication {
     static ApplicationContext appContext;
 
+    @SuppressWarnings("squid:S4823")
     public static void main(final String... args) {
         appContext = SpringApplication.run(MicroserviceApplication.class, args);
     }
