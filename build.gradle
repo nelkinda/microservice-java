@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.2.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'checkstyle'
 }
 
 group = 'com.nelkinda.training'
@@ -19,12 +20,23 @@ repositories {
 }
 
 dependencies {
+    checkstyle 'com.puppycrawl.tools:checkstyle:8.30'
     implementation 'org.springframework.boot:spring-boot-starter'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+}
+
+checkstyleMain {
+    configFile = file("config/checkstyle/checkstyleMain.xml")
+    maxWarnings = 0
+}
+
+checkstyleTest {
+    configFile = file("config/checkstyle/checkstyleTest.xml")
+    maxWarnings = 0
 }
 
 test {
