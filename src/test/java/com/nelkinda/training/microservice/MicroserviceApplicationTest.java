@@ -10,7 +10,9 @@ import static org.springframework.boot.SpringApplication.exit;
 
 @SpringBootTest
 class MicroserviceApplicationTest {
-    @SuppressWarnings({"PMD.UncommentedEmptyMethodBody", "PMD.JUnitTestsShouldIncludeAssert", "squid:S2699", "java:S1186"})
+    @SuppressWarnings(
+            {"PMD.UncommentedEmptyMethodBody", "PMD.JUnitTestsShouldIncludeAssert", "squid:S2699", "java:S1186"}
+    )
     @Test
     void contextLoads() {
     }
