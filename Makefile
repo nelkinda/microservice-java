@@ -29,5 +29,18 @@ wrapper: $(BUILD)
 $(BUILD):
 	$(GRADLE_BOOTSTRAP) wrapper
 
+.PHONY: sonard
+## Starts a local SonarQube server using Docker.
+# If a Docker container sonarqube exists, it will (re)start it.
+# If it doesn't exist, it will download the sonarqube docker image, configure the plugins, and start a container with the same name.
+sonard:
+	$(MAKE) -C sonarqube
+
+.PHONY: sonarqube
+## Runs the SonarQube analysis.
+# Requires the project to be built and the SonarQube server to be running.
+sonarqube:
+	$(BUILD) $(BUILDFLAGS) $@
+
 -include ~/.User.mk
 -include .User.mk
