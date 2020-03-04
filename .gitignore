@@ -3,6 +3,10 @@ build/
 .gradle/
 local.properties
 
+# make
+.makehelp/
+.help.mk
+
 # IntelliJ IDEA
 .idea/
 *.iml

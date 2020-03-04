@@ -17,7 +17,7 @@ build: $(BUILD)
 clean:: $(BUILD)
 	$(BUILD) $(BUILDFLAGS) $@
 
-.PHONY: run
+.PHONY: run bootRun
 ## Runs the application.
 run: bootRun
 bootRun: $(BUILD)
@@ -41,6 +41,13 @@ sonard:
 # Requires the project to be built and the SonarQube server to be running.
 sonarqube:
 	$(BUILD) $(BUILDFLAGS) $@
+
+-include .makehelp/include/makehelp/Help.mk
+
+ifeq (help, $(filter help,$(MAKECMDGOALS)))
+.makehelp/include/makehelp/Help.mk:
+	git clone --depth=1 https://github.com/christianhujer/makehelp.git .makehelp
+endif
 
 -include ~/.User.mk
 -include .User.mk
