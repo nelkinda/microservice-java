@@ -8,6 +8,11 @@ GRADLE_BOOTSTRAP:=$(firstword $(wildcard $(GRADLE) $(shell which gradle)))
 ## Builds and verifies the project.
 all: build
 
+.PHONY: pipeline
+## Runs the same thing as the pipeline.
+pipeline:
+	$(BUILD) $(BUILDFLAGS) build pitest
+
 .PHONY: build
 ## Builds and verifies the project.
 build: $(BUILD)
