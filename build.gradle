@@ -1,0 +1,4 @@
+wrapper {
+    gradleVersion "6.2.1"
+    jarFile ".gradle/wrapper/gradle-wrapper.jar"
+}
