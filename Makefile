@@ -13,6 +13,11 @@ all: build
 pipeline:
 	$(BUILD) $(BUILDFLAGS) build pitest
 
+.PHONY: continuous
+## Runs and tests continuously.
+continuous:
+	$(BUILD) $(BUILDFLAGS) --continuous test pitest
+
 .PHONY: build
 ## Builds and verifies the project.
 build: $(BUILD)
