@@ -23,6 +23,11 @@ run: bootRun
 bootRun: $(BUILD)
 	$(BUILD) $(BUILDFLAGS) $@
 
+.PHONY: pitest
+## Runs the Pitest mutation tests.
+pitest:
+	$(BUILD) $(BUILDFLAGS) $@
+
 .PHONY: wrapper
 ## Generates the wrapper.
 wrapper: $(BUILD)
