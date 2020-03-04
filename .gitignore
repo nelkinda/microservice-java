@@ -1,6 +1,11 @@
 # Gradle
-.gradle
 build/
+.gradle
+local.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
 
 # Vim
 *.swp
