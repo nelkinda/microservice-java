@@ -1,4 +1,4 @@
-package com.nelkinda.training.microservice;
+package com.nelkinda.training.microservice.acceptance;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
         strict = true
 )
 @RunWith(Cucumber.class)
-public class RunCukesOldTest {
+public class RunAcceptanceTest {
 }
