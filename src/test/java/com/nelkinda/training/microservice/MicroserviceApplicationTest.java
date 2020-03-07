@@ -19,7 +19,7 @@ class MicroserviceApplicationTest {
 
     @Test
     void mainRuns() {
-        main();
+        main("--server.port=0");
         assertEquals(0, exit(appContext));
     }
 }
