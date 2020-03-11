@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.*
+
 buildscript {
     configurations.maybeCreate('pitest')
     dependencies {
@@ -40,6 +42,7 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     testAnnotationProcessor 'org.projectlombok:lombok'
     testCompileOnly 'org.projectlombok:lombok'
@@ -55,6 +58,7 @@ dependencies {
     testImplementation 'org.junit.platform:junit-platform-commons:1.6.0'
     testImplementation 'org.junit.platform:junit-platform-engine:1.6.0'
     testImplementation 'org.junit.vintage:junit-vintage-engine:5.6.0'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         exclude group: 'org.junit.jupiter', module: 'junit-jupiter'
@@ -110,6 +114,12 @@ pmdMain {
 
 pmdTest {
     ruleSetFiles = files("config/pmd/pmdTest.xml")
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+        "application.version": project.property("version")
+    ]
 }
 
 test {
