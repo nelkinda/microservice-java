@@ -38,6 +38,11 @@ bootRun: $(BUILD)
 pitest:
 	$(BUILD) $(BUILDFLAGS) $@
 
+.PHONY: dependencyUpdates
+## Checks for dependency updates.
+dependencyUpdates:
+	$(BUILD) $(BUILDFLAGS) $@
+
 .PHONY: wrapper
 ## Generates the wrapper.
 wrapper: $(BUILD)
